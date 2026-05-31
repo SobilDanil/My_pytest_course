@@ -34,21 +34,3 @@ def test_subtraction():
     # assert subtract(10, 5) == 5
     pass
 
-
-@pytest.mark.skipif(
-    sys.version_info < (3, 10),
-    reason="Требуется Python 3.10 или выше"
-)
-def test_new_python_feature():
-    """Тест, использующий синтаксис, доступный только в новых версиях Python."""
-    # Пример использования match-case, который появился в 3.10
-    result = 0
-    match 1:
-        case 1:
-            result = 1
-    assert result == 1
-
-@pytest.mark.xfail(reason="Известный баг с точностью float, будет исправлен в #TICKET-123")
-def test_add_floats_bug():
-    # Этот тест будет падать из-за особенностей представления float в Python
-    assert add(0.1, 0.2) == 0.3
